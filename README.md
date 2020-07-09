@@ -1,4 +1,5 @@
 # Cryptocurrency Combination Spread Data
+![spread](https://i.imgur.com/2YVmoPZ.jpg)
 
 **Table of Contents**
 
