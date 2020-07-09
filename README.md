@@ -1,12 +1,42 @@
 # Cryptocurrency Combination Spread Data
-This repository is provided to give access to developers who wish to pull down the executium `spread` data.
+
+**Table of Contents**
+
+- [General Information](#general-information)
+- [HTTP Return Codes](#http-return-codes)
+- [Demo](#demo)
+- [Limits](#limits)
+- [API Information](#api-information)
+	- [Fetch Spread Candlestick Data](#fetch-spread-candlestick-data) (public/fetch-spread-data)
+	- [Symbols Supported](#symbols-supported) (system/symbols)
+	- [Match Pair](#match-pair) (public/match-pair)
+
+
+## General Information - [`View Demo`](https://marketdata.executium.com/spread-data-demo/)
+This repository is provided to give access to developers who wish to pull down the executium `spread` data. This repository is provided as a standalone focused project. It is part of the executium REST API version 2.
+
+* The base for public `marketdata` is : **`marketdata.executium.com`**
+* All endpoints return either a JSON object or array.
+* Data returned is limited according to subscription.
+* Timestamp fields vary and are labeled to their corresponding contents of **milliseconds** or **time**
+
+## HTTP Return Codes
+
+* HTTP `4XX` return codes are used for malformed requests where the issue exists with the sender.
+* HTTP `418` return code is used when an IP has been banned automatically for continuing to send requests after receiving `429` codes.
+* HTTP `422` return code is applied when a user input is unexpected.
+* HTTP `429` return code is used when breaking a request rate limit.
+* HTTP `5XX` return codes are used for internal errors.
 
 ## Demo
 There is a useful [online demo provided by executium here](https://marketdata.executium.com/spread-data-demo/)
 
 ![spread](https://i.imgur.com/zKTjg21.jpg)
 
-## API Endpoint: Fetch Spread Data
+## Limits
+You are only able to pull the current days candle data based on 1 minute ticks. For more history please see your executium account.
+
+## Fetch Spread Candlestick Data
 Spreads are calculated as Ask-Bid for price, and Ask/Bid for ratio.
 
 ```
@@ -45,7 +75,7 @@ latestonly |  | NO |  | Set as `true` to activate. Useful to pull when you are o
 	
 ```
 
-## API Endpoint: Symbols
+## Symbols
 All symbols listed and supported on executium. This `endpoint` also accepts `GET`, you can filter the data using the `exchange` parameter, for example `GET /api/v2/system/symbols?exchange=bifinex`.
 
 To get a working code you need to combine the `exchange` with the `id`. For example `binance-ethbtc` is a combination of the two. So `binance-ethbtc+bitfinex-ethbtc` would provide the candle data for that combination.
@@ -111,7 +141,7 @@ exchange |  | NO |  | Filter the data by exchange.
       
 ```
 
-## API Endpoint: Match Pairs
+## Match Pairs
 This system is provided to give insight into a `pairing` and where you can also trade it. For this endpoint we accept both `POST` and `GET`. An example of `GET` would be `https://marketdata.executium.com/api/v2/public/match-pair?code=btcusdt,btcusd`. 
 
 ```
