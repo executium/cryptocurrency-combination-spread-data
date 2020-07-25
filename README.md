@@ -34,6 +34,11 @@ There is a useful [online demo provided by executium here](https://marketdata.ex
 
 ![spread](https://i.imgur.com/zKTjg21.jpg)
 
+### Live Spread Graphs
+With executium we offer up the ability to watch real-time spreads on higher subscription tiers.
+
+![live spreads](https://i.imgur.com/aEPxTxV.gif)
+
 ## Limits
 You are only able to pull the current days candle data based on 1 minute ticks. For more history please see your executium account.
 
